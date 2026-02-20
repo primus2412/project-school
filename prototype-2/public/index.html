@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Quiz Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>AI-Powered Quiz Generator</h1>
+
+<div class="form">
+  <textarea id="content" placeholder="Enter study text here..."></textarea>
+
+  <select id="difficulty">
+    <option value="Easy">Easy</option>
+    <option value="Medium">Medium</option>
+    <option value="Hard">Hard</option>
+  </select>
+
+  <input type="number" id="count" value="5" min="1" max="20">
+
+  <button onclick="generateQuiz()">Generate Quiz</button>
+</div>
+
+<div id="quiz-container"></div>
+<div id="result"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

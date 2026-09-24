@@ -1,11 +1,12 @@
 {
-  "name": "ai-quiz-generator",
-  "version": "1.0.0",
-  "description": "AI Powered Quiz Generator",
+  "name": "brainspark-ai-quiz",
+  "version": "2.0.0",
+  "description": "AI-Powered Study Assistant and Intelligent Quiz Generation Platform",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainSpark AI - Intelligent Study & Quiz Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Navigation -->
+    <header class="navbar">
+      <div class="logo">
+        <span class="spark-icon">⚡</span>
+        <h2>BrainSpark <span>AI</span></h2>
+      </div>
+      <div class="nav-links">
+        <span class="badge">v2.0 Production Ready</span>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="content">
+      <!-- Input Panel -->
+      <section id="input-section" class="glass-card">
+        <div class="card-header">
+          <h1>Transform Any Document Into Interactive Quizzes</h1>
+          <p>Upload a PDF document or paste study text to instantly generate AI-powered assessment tests.</p>
+        </div>
+
+        <form id="quiz-form">
+          <div class="input-tabs">
+            <button type="button" class="tab-btn active" data-tab="text">✍️ Paste Text</button>
+            <button type="button" class="tab-btn" data-tab="pdf">📄 Upload PDF</button>
+          </div>
+
+          <div id="text-tab-content" class="tab-content active">
+            <textarea id="study-content" placeholder="Paste your study notes, article text, or lecture content here (min 100 characters)..."></textarea>
+          </div>
+
+          <div id="pdf-tab-content" class="tab-content">
+            <div class="file-dropzone" id="dropzone">
+              <input type="file" id="pdf-file" accept=".pdf" hidden>
+              <div class="dz-message">
+                <span class="upload-icon">📁</span>
+                <p>Drag & drop your study PDF here, or <strong>browse files</strong></p>
+                <small id="file-name">No file selected</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-controls">
+            <div class="control-group">
+              <label for="difficulty">Difficulty</label>
+              <select id="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="question-count">Question Count</label>
+              <select id="question-count">
+                <option value="3">3 Questions</option>
+                <option value="5" selected>5 Questions</option>
+                <option value="10">10 Questions</option>
+              </select>
+            </div>
+
+            <button type="submit" id="generate-btn" class="primary-btn">
+              <span>🚀 Generate Quiz</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Loading State -->
+      <section id="loading-section" class="glass-card hidden">
+        <div class="loader-spinner"></div>
+        <h3>Analyzing Content & Synthesizing Questions...</h3>
+        <p>BrainSpark AI is processing key concepts, extracting entity relationships, and generating assessment items.</p>
+      </section>
+
+      <!-- Active Quiz Section -->
+      <section id="quiz-section" class="glass-card hidden">
+        <div class="quiz-header">
+          <span id="quiz-progress-text">Question 1 of 5</span>
+          <div class="timer" id="quiz-timer">⏱️ 00:00</div>
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+
+        <div id="question-container" class="question-box">
+          <h2 id="question-title">Question Text...</h2>
+          <div id="options-container" class="options-list"></div>
+        </div>
+
+        <div class="quiz-nav">
+          <button id="next-btn" class="primary-btn">Next Question ➔</button>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section id="results-section" class="glass-card hidden">
+        <div class="results-header">
+          <h2>Quiz Performance Scorecard</h2>
+          <div class="score-circle">
+            <span id="score-percentage">0%</span>
+            <small id="score-fraction">0 / 0 Correct</small>
+          </div>
+        </div>
+
+        <div id="breakdown-container" class="breakdown-list"></div>
+
+        <button id="restart-btn" class="primary-btn">🔄 Generate New Quiz</button>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
